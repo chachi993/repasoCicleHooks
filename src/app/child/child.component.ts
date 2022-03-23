@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -9,6 +9,13 @@ export class ChildComponent implements OnInit {
 
   counter = 0;
   interval: any = 0;
+
+  @Input()
+  firstName = "";
+
+  @ContentChild('parentContent', {static: true}) parentContent: any;
+  @ViewChild('childContent', {static: true}) childContent: any;
+
 
   constructor() {
     console.log("child Constructor is called");
@@ -21,6 +28,7 @@ export class ChildComponent implements OnInit {
   //    this.counter = this.counter + 1;
   //    console.log(this.counter);
   //     }, 1000);
+
    this.interval =   setInterval(() => {
         this.counter = this.counter + 1;
         console.log(this.counter);
@@ -28,7 +36,9 @@ export class ChildComponent implements OnInit {
    }
   ngOnDestroy(): void {
     // console.log("onDestroy: " + this.counter);
+
     // clearInterval(this.counter);
+
     clearInterval(this.interval);
     console.log("child onDestroy is called");
   }

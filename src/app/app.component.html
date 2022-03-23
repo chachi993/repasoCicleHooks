@@ -1,5 +1,13 @@
 
 <p>Parent works!</p>
- <button
+
+<input type="text" [(ngModel)]="firstName">
+<p>{{firstName}}</p>
+
+<button
 (click) = "toggleChild()">Toggle Child</button>
-<app-child *ngIf="isChild"></app-child>
+<hr>
+
+<app-child *ngIf="isChild" [firstName]="firstName">
+  <h2 #parentContent>This is content from parent</h2>
+</app-child>
