@@ -29,17 +29,17 @@ export class ChildComponent implements OnInit {
   //    console.log(this.counter);
   //     }, 1000);
 
-   this.interval =   setInterval(() => {
-        this.counter = this.counter + 1;
-        console.log(this.counter);
-         }, 1000);
+  //  this.interval =   setInterval(() => {
+  //       this.counter = this.counter + 1;
+  //       console.log(this.counter);
+  //        }, 1000);
    }
   ngOnDestroy(): void {
     // console.log("onDestroy: " + this.counter);
 
     // clearInterval(this.counter);
 
-    clearInterval(this.interval);
+    // clearInterval(this.interval);
     console.log("child onDestroy is called");
   }
 
